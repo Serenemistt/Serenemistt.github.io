@@ -1,0 +1,625 @@
+/* ============================================
+   Hex Birthday Styles - Enhanced
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #ffffff;
+    font-family: 'Courier New', monospace;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Canvas for particles */
+#particleCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* Main container */
+.container {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================
+   Hex Cake Styling
+   ============================================ */
+
+.hex-cake {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    user-select: none;
+}
+
+.hex-cake:hover {
+    transform: scale(1.1);
+}
+
+.hex-cake:active {
+    transform: scale(1.05);
+}
+
+.cake-layer {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 0.3rem;
+    margin: 4px 0;
+    background: linear-gradient(135deg, #ff6b9d, #c06c84, #6c5b7b, #355c7d);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glow 2s ease-in-out infinite;
+    text-shadow: 0 0 10px rgba(255, 107, 157, 0.5);
+    filter: drop-shadow(0 0 8px rgba(255, 107, 157, 0.4));
+}
+
+.cake-base {
+    font-size: 1.5rem;
+    color: #8b4513;
+    margin-top: 8px;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Candle */
+.candle {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flame {
+    font-size: 1.5rem;
+    animation: flicker 0.5s ease-in-out infinite alternate;
+}
+
+.wick {
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 0.8;
+}
+
+/* ============================================
+   Birthday Message
+   ============================================ */
+
+.birthday-message {
+    margin-top: 40px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(
+        90deg,
+        #ff0000,
+        #ff7f00,
+        #ffff00,
+        #00ff00,
+        #0000ff,
+        #4b0082,
+        #9400d3,
+        #ff0000
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 4s linear infinite;
+}
+
+.instruction {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: #666;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+
+@keyframes glow {
+    0%, 100% {
+        filter: drop-shadow(0 0 8px rgba(255, 107, 157, 0.4));
+    }
+    50% {
+        filter: drop-shadow(0 0 20px rgba(255, 107, 157, 0.8));
+    }
+}
+
+@keyframes flicker {
+    0% {
+        transform: scale(1) translateY(0);
+    }
+    100% {
+        transform: scale(1.1) translateY(-2px);
+    }
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media (max-width: 768px) {
+    .cake-layer {
+        font-size: 1.2rem;
+        letter-spacing: 0.2rem;
+    }
+    
+    .cake-base {
+        font-size: 1rem;
+    }
+    
+    .birthday-message {
+        font-size: 1.8rem;
+    }
+    
+    .instruction {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cake-layer {
+        font-size: 0.9rem;
+        letter-spacing: 0.15rem;
+    }
+    
+    .cake-base {
+        font-size: 0.8rem;
+    }
+    
+    .birthday-message {
+        font-size: 1.4rem;
+    }
+    
+    .flame {
+        font-size: 1.2rem;
+    }
+}
+
+.MadeByKirix {
+    position: fixed; 
+    bottom: 10px;
+    left: 10px;
+    font-size: 16px;
+    color: #333;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+/* ============================================
+   Easter Egg - Version 777
+   ============================================ */
+
+.MadeByKirix.special {
+    color: #ff6b9d !important;
+    font-size: 20px !important;
+    font-weight: bold;
+    cursor: pointer;
+    animation: glow 2s ease-in-out infinite;
+    text-shadow: 0 0 10px rgba(255, 107, 157, 0.8);
+    transition: transform 0.3s ease;
+}
+
+.MadeByKirix.special:hover {
+    transform: scale(1.15);
+    color: #ff0000 !important;
+}
+
+/* ============================================
+   Hex Slot Machine (replaces cake)
+   ============================================ */
+
+.hex-slots {
+    text-align: center;
+    font-family: 'Courier New', monospace;
+}
+
+.hex-slots-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff6b9d;
+    letter-spacing: 0.2rem;
+    margin-bottom: 20px;
+}
+
+.jackpot-counter {
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.jackpot-counter span {
+    color: #ff6b9d;
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.hex-slot-machine {
+    display: inline-block;
+    margin: 30px 0;
+}
+
+.hex-slot-display {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.hex-reel {
+    font-family: 'Courier New', monospace;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.6;
+}
+
+.hex-reel-line {
+    background: linear-gradient(135deg, #ff6b9d, #c06c84, #6c5b7b, #355c7d);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 0.3rem;
+    filter: drop-shadow(0 0 8px rgba(255, 107, 157, 0.4));
+}
+
+.hex-reel-value {
+    font-size: 3rem;
+    color: #ff6b9d;
+    font-weight: bold;
+    text-shadow: 0 0 15px rgba(255, 107, 157, 0.6);
+    margin: 10px 0;
+}
+
+.spin-btn {
+    background: linear-gradient(135deg, #ff6b9d, #c06c84);
+    color: white;
+    border: none;
+    padding: 15px 50px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 107, 157, 0.4);
+}
+
+.spin-btn:hover {
+    transform: scale(1.05);
+}
+
+.spin-btn:active {
+    transform: scale(0.95);
+}
+
+.spin-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.slot-result {
+    margin-top: 25px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ff6b9d;
+    min-height: 40px;
+}
+
+/* ============================================
+   Blackjack Styles
+   ============================================ */
+
+.blackjack-game {
+    text-align: center;
+    font-family: 'Courier New', monospace;
+}
+
+.blackjack-title {
+    font-size: 2.5rem;
+    color: #ff6b9d;
+    margin-bottom: 20px;
+}
+
+.wins-counter {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.wins-counter span {
+    color: #ff6b9d;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.card-area {
+    margin: 30px 0;
+}
+
+.card-area h3 {
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.cards {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-height: 140px;
+}
+
+.hex-card {
+    background: white;
+    border: 3px solid #333;
+    border-radius: 10px;
+    width: 80px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Courier New', monospace;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ff6b9d;
+}
+
+.card-hex {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+.blackjack-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.bj-button {
+    background: linear-gradient(135deg, #ff6b9d, #c06c84);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Courier New', monospace;
+}
+
+.bj-button:hover:not(:disabled) {
+    transform: scale(1.05);
+}
+
+.bj-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.blackjack-message {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff6b9d;
+    min-height: 35px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .blackjack-title {
+        font-size: 2rem;
+    }
+    
+    .hex-card {
+        width: 60px;
+        height: 90px;
+    }
+    
+    .card-value {
+        font-size: 1.3rem;
+    }
+    
+    .blackjack-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}   
+
+/* ============================================
+   Victory Screen with HEX Gift Card - FIXED
+   ============================================ */
+
+.victory-screen {
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    padding: 60px 20px 40px 20px;  /* ← Added top padding */
+    min-height: 100vh;  /* ← Ensure full height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;  /* ← Allow scrolling if needed */
+}
+
+.victory-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ff6b9d;
+    margin-bottom: 30px;
+    margin-top: 20px;  /* ← Added top margin */
+    animation: pulse 2s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(255, 107, 157, 0.8);
+}
+
+.victory-subtitle {
+    font-size: 1.8rem;
+    color: #666;
+    margin-bottom: 40px;
+    letter-spacing: 0.1rem;
+}
+
+.hex-gift-card {
+    display: inline-block;
+    margin: 40px auto;
+    position: relative;
+}
+
+.hex-card-line {
+    font-family: 'Courier New', monospace;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    font-weight: bold;
+    white-space: pre;
+    background: linear-gradient(135deg, #ff6b9d, #c06c84, #6c5b7b, #355c7d);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glow 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px rgba(255, 107, 157, 0.4));
+}
+
+.hex-card-code {
+    color: #355c7d;
+    font-size: 1.3rem;
+    font-weight: bold;
+    letter-spacing: 0.3rem;
+    margin: 10px 0;
+}
+
+.hex-card-amount {
+    color: #ff6b9d;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 0 0 15px rgba(255, 107, 157, 0.6);
+}
+
+.gift-instructions {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 40px;
+    margin-bottom: 30px;  /* ← Added bottom margin */
+    font-style: italic;
+}
+
+.birthday-message-final {
+    font-size: 1.5rem;
+    color: #ff6b9d;
+    margin-top: 30px;
+    margin-bottom: 20px;  /* ← Added bottom margin */
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .victory-screen {
+        padding: 40px 15px;
+    }
+    
+    .victory-title {
+        font-size: 2rem;
+        margin-top: 10px;
+    }
+    
+    .victory-subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .hex-card-line {
+        font-size: 0.8rem;
+    }
+    
+    .hex-card-code {
+        font-size: 0.9rem;
+        letter-spacing: 0.1rem;
+    }
+    
+    .hex-card-amount {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .victory-screen {
+        padding: 30px 10px;
+    }
+    
+    .victory-title {
+        font-size: 1.5rem;
+    }
+    
+    .hex-card-line {
+        font-size: 0.6rem;
+    }
+    
+    .hex-card-code {
+        font-size: 0.7rem;
+    }
+}
+/* Fade transition */
+.fade-out {
+    animation: fadeOut 0.5s ease-out forwards;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in forwards;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.9); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
